@@ -1,0 +1,10 @@
+**/node_modules
+**/node_modules_1
+**/*.js
+**/*.map
+**/bin
+build/**/*.*
+dist/**/*
+!patches/**/*.*
+**/*.tgz
+**/*.log
