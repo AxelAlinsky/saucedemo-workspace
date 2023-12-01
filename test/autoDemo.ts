@@ -6,6 +6,7 @@ import { Main } from '../src/components/main';
 import { App } from '../src/app';
 import { DataURL } from '../src/components/data/data';
 
+
 let compMain = new Main();
 let ObjApp: App;
 
@@ -27,6 +28,7 @@ describe('Web Automation', async function () {
 
   describe('Web Automation', async function () {
     before(async function () {
+
 
     });
 

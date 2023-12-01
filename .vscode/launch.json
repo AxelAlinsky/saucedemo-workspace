@@ -4,7 +4,7 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Debug TypeScript Tests",
+            "name": "autoDemo",
             "runtimeArgs": [
                 "-r",
                 "ts-node/register"
@@ -14,6 +14,54 @@
                 "--timeout", "999999",
                 "--colors",
                 "${workspaceFolder}/test/autoDemo.ts" // Point to the TypeScript test file
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "test",
+                "PERFHUB_ENABLED": "false"
+            },
+            "sourceMaps": true,
+            "skipFiles": ["<node_internals>/**"],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "[loginTest]: Validate Successful Login",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+                "--timeout", "999999",
+                "--colors",
+                "${workspaceFolder}/test/loginTest.ts" // Point to the TypeScript test file
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "test",
+                "PERFHUB_ENABLED": "false"
+            },
+            "sourceMaps": true,
+            "skipFiles": ["<node_internals>/**"],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "[regressionTestR]: Regression Test",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+                "--timeout", "999999",
+                "--colors",
+                "${workspaceFolder}/test/regressionTest.ts" // Point to the TypeScript test file
             ],
             "cwd": "${workspaceRoot}",
             "env": {
