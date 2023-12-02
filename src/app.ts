@@ -21,14 +21,15 @@ export class App {
     static async buildDriver(): Promise<WebDriver> {
         let options = new chrome.Options();
         options.addArguments('--headless');
-        options.addArguments('--no-sandbox');
-        options.addArguments('--disable-dev-shm-usage');
-
+        options.addArguments('--no-sandbox'); // Bypass OS security model, crucial for Docker/CI environments
+        options.addArguments('--disable-dev-shm-usage'); // Overcome limited resource problems
+        options.addArguments('--disable-gpu'); // Applicable for some versions of Chrome
+    
         const driver = await new Builder()
             .forBrowser('chrome')
             .setChromeOptions(options)
             .build();
-
+    
         return driver;
     }
 
