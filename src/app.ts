@@ -1,20 +1,35 @@
-import { assert, expect } from 'chai';
+import { assert } from 'chai';
+import { Builder, By, until, WebDriver, Capabilities } from 'selenium-webdriver';
+import * as chrome from 'selenium-webdriver/chrome';
 import { Main } from '../src/components/main';
-import { Builder, By, until, WebDriver  } from 'selenium-webdriver';
-import { WebElement } from 'selenium-webdriver';
 import { DataURL } from '../src/components/data/data';
 
 let compMain = new Main();
 let driver: WebDriver;
 
-
 export class App {
     private driver: WebDriver;
     private compMain: Main; // Property to hold the Main instance
+    
   
     constructor(driver: WebDriver) {
         this.driver = driver;
         this.compMain = new Main(); // Initialize the Main instance
+    }
+
+    // Static method to initialize the WebDriver with headless configuration
+    static async buildDriver(): Promise<WebDriver> {
+        let options = new chrome.Options();
+        options.addArguments('--headless');
+        options.addArguments('--no-sandbox');
+        options.addArguments('--disable-dev-shm-usage');
+
+        const driver = await new Builder()
+            .forBrowser('chrome')
+            .setChromeOptions(options)
+            .build();
+
+        return driver;
     }
 
     // ---URL---

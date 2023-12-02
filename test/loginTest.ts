@@ -13,6 +13,7 @@ describe('Validate Successful Login', async function () {
     let driver: WebDriver;
 
     before(async function () {
+        driver = await App.buildDriver();
         driver = await new Builder().forBrowser('chrome').build();
         ObjApp = new App(driver); // Pass the driver instance here
         await driver.get('https://www.saucedemo.com'); // Navigate to the website

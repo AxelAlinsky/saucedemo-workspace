@@ -22,14 +22,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+    - name: Install Dependencies
+      run: npm install
+
     - run: npm ci
-    - run: npm run build --if-present
+    - run: npm run build
 
     - name: Setup Chrome
       uses: browser-actions/setup-chrome@latest
-
-    - name: Run Build 
-      run: npm run build
 
     - name: Run Selenium Tests
       run: npm run test
