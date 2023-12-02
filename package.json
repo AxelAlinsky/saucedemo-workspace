@@ -4,11 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./build/test/autoDemo.js",
-    "build": "tsc"
+    "clean": "rimraf ./build ./package.zip",
+    "test": "_mocha ./build/test/loginTest.js --timeout=999999 --exit",
+    "build": "npm run clean && tsc "
   },
   "keywords": [],
-  "author": "",
+  "author": "Apichai Tochonnabod",
   "license": "ISC",
   "dependencies": {
     "chai-as-promised": "^7.1.1",
@@ -23,6 +24,8 @@
     "@types/selenium-webdriver": "^4.1.20",
     "chai": "^4.3.10",
     "mocha": "^10.2.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "copyfiles": "^2.1.0",
+    "rimraf": "^2.6.2"
   }
 }
