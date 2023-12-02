@@ -25,7 +25,6 @@ describe('Validate Successful Login', async function () {
 
     it('Step 1: Open Browser', async function () {
     await driver.sleep(1000);
-
     await ObjApp.verifyTitle();
     });
 

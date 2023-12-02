@@ -18,7 +18,6 @@ export class App {
     }
 
     // ---URL---
-
     async verifyUrl(expectedUrl: string) {
         try {
             // Wait for the page url
