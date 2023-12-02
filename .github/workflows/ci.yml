@@ -1,4 +1,4 @@
-name: Node.js CI
+name: DemoTest
 
 on:
   push:
@@ -27,6 +27,9 @@ jobs:
 
     - name: Setup Chrome
       uses: browser-actions/setup-chrome@latest
+
+    - name: Run Build 
+      run: npm run build
 
     - name: Run Selenium Tests
       run: npm run test
