@@ -7,7 +7,7 @@ import { App } from '../src/app';
 import { DataURL } from '../src/components/data/data';
 
 let compMain = new Main();
-let ObjApp: App;
+let objApp: App;
 
 describe('Test Case: Validate Successful Login', async function () {
     let driver: WebDriver;
@@ -15,7 +15,7 @@ describe('Test Case: Validate Successful Login', async function () {
     before(async function () {
         driver = await App.buildDriver();
         driver = await new Builder().forBrowser('chrome').build();
-        ObjApp = new App(driver); // Pass the driver instance here
+        objApp = new App(driver); // Pass the driver instance here
         await driver.manage().window().maximize(); // Maximize the browser window
     });
 
@@ -26,19 +26,19 @@ describe('Test Case: Validate Successful Login', async function () {
     it('Step 1: Open Browser', async function () {
     await driver.get('https://www.saucedemo.com'); // Navigate to the website
     
-    await ObjApp.verifyTitle();
+    await objApp.verifyTitle();
     });
 
     it('Step 2: Input in the application with valid username', async function () {
-    await ObjApp.insertText(By.id(compMain.userNameInput), 'standard_user');
+    await objApp.insertText(By.css(compMain.userNameInput), 'standard_user');
     });
 
     it('Step 3: Input in the application with valid password', async function () {        
-    await ObjApp.insertText(By.id(compMain.userPassInput), 'secret_sauce ');
+    await objApp.insertText(By.css(compMain.userPassInput), 'secret_sauce ');
     });
 
     it('Step 4: Click on the login button', async function () {
-    await ObjApp.click(By.id(compMain.loginButtion));
+    await objApp.click(By.css(compMain.loginButton));
     });
 });
 

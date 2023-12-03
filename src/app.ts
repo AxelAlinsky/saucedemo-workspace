@@ -33,7 +33,7 @@ export class App {
         return driver;
     }
 
-    // ---URL---
+    // ---URL--- ------------->>>
     async verifyUrl(expectedUrl: string) {
         try {
             // Retrieve the page url and assert
@@ -46,8 +46,7 @@ export class App {
     }
 
 
-    // ---LOGIN_PAGE---
-
+    // ---LOGIN_PAGE--- ------------->>>
     async verifyTitle() {
         const expectedTitle = 'Swag Labs';
         try {
@@ -91,8 +90,56 @@ export class App {
         }
     }
 
-    // ---INTERACTION---
-    
+    async verifyText(locator: By, expectedText: string) {
+        try {
+            // Wait for the element to be located
+            const element = await this.driver.wait(until.elementLocated(locator), 5000);
+
+            // Retrieve the element's text and assert
+            const actualText = await element.getText();
+            assert.equal(actualText, expectedText, `Expected text '${expectedText}', but found '${actualText}'`);
+        } catch (error) {
+            console.error('Error in verifyText:', error);
+            throw error;
+        }
+    }
+
+    // ---CHECKOUT_PAGE_FUNCTION--- ------------->>>
+    async verifyCartCount(expectedCount: string) {
+        try {
+            // Wait for the element to be located
+            const element = await this.driver.wait(until.elementLocated(By.css(compMain.cartBadge)), 5000);
+
+            // Retrieve the element's text and assert
+            const actualCount = await element.getText();
+            assert.equal(actualCount, expectedCount, `Expected text '${expectedCount}', but found '${actualCount}'`);
+        } catch (error) {
+            console.error('Error in verifyCartCount:', error);
+            throw error;
+        }
+    }
+
+    async getItemQty() {
+        try {
+            const elements = await this.driver.findElements(By.css(compMain.inBasketItem));
+            return elements.length;
+        } catch (error) {
+            console.error('Error in getItemQty:', error);
+            throw error;
+        }
+    }
+
+    async verifyItemQty(expectedQty: number) {
+        try {
+            const actualQty = await this.getItemQty();
+            assert.equal(actualQty, expectedQty, `Expected quantity '${expectedQty}', but found '${actualQty}'`);
+        } catch (error) {
+            console.error('Error in verifyItemQty:', error);
+            throw error;
+        }
+    }
+
+    // ---INTERACTION--- ------------->>>
     async insertText(locator: By, text: string) {
         try {
             // Wait for the element to be located and interactable
