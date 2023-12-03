@@ -92,7 +92,7 @@ describe('Test Case: Validate End-to-End Shopping Process for a Specific Product
     it('Step 10: Click on the "Finish" button', async function () {
         // Find the text 'Finish' and click on it
         await objApp.click(By.css(compMain.finishBtn));
-\
+
         // Verify the URL
         await objApp.verifyUrl(DataURL.saucedemoCheckoutComplete);
 
