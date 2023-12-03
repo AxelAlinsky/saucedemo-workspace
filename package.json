@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean && tsc",
     "clean": "rimraf ./build ./package.zip",
-    "test": "_mocha ./build/test/invalidLoginTest.js --timeout=999999 --exit",
+    "test": "_mocha ./build/test/restrictedAccessTest.js --timeout=999999 --exit",
     "regression": "_mocha ./build/test/regression.js --timeout=999999 --exit"
 
   },
