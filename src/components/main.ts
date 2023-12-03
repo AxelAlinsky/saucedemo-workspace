@@ -9,5 +9,7 @@ export class Main {
 
     get loginErrorMsg() {return '[data-test="error"]';}
 
+    get restrictedErrorMsg() {return '[class="error-message-container error"]';}
+
     get errorMsgCloseBtn() {return '[data-test="error"] > button';}
 }

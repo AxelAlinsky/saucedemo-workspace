@@ -1,30 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "autoDemo",
-            "runtimeArgs": [
-                "-r",
-                "ts-node/register"
-            ],
-            "args": [
-                "${workspaceFolder}/node_modules/mocha/bin/_mocha",
-                "--timeout", "999999",
-                "--colors",
-                "${workspaceFolder}/test/autoDemo.ts" // Point to the TypeScript test file
-            ],
-            "cwd": "${workspaceRoot}",
-            "env": {
-                "NODE_ENV": "test",
-                "PERFHUB_ENABLED": "false"
-            },
-            "sourceMaps": true,
-            "skipFiles": ["<node_internals>/**"],
-            "console": "internalConsole",
-            "internalConsoleOptions": "openOnSessionStart"
-        },
+        // Test Case: 1 --------------->>>>
         {
             "type": "node",
             "request": "launch",
@@ -37,7 +14,7 @@
                 "${workspaceFolder}/node_modules/mocha/bin/_mocha",
                 "--timeout", "999999",
                 "--colors",
-                "${workspaceFolder}/test/loginTest.ts" // Point to the TypeScript test file
+                "${workspaceFolder}/test/validLoginTest.ts" // Point to the TypeScript test file
             ],
             "cwd": "${workspaceRoot}",
             "env": {
@@ -48,11 +25,12 @@
             "skipFiles": ["<node_internals>/**"],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart"
-        }
+        },
+        // Test Case: 2 --------------->>>>
         {
             "type": "node",
             "request": "launch",
-            "name": "[regressionTestR]: Regression Test",
+            "name": "[invalidLoginTest]: Validate Unsuccessful Login",
             "runtimeArgs": [
                 "-r",
                 "ts-node/register"
@@ -61,7 +39,7 @@
                 "${workspaceFolder}/node_modules/mocha/bin/_mocha",
                 "--timeout", "999999",
                 "--colors",
-                "${workspaceFolder}/test/regressionTest.ts" // Point to the TypeScript test file
+                "${workspaceFolder}/test/invalidLoginTest.ts" 
             ],
             "cwd": "${workspaceRoot}",
             "env": {
@@ -72,6 +50,57 @@
             "skipFiles": ["<node_internals>/**"],
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart"
-        }
+        },
+        // Test Case: 3 --------------->>>>
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "[restrictedAccessTest]: Validate Direct Access to Inventory Page without Login",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+                "--timeout", "999999",
+                "--colors",
+                "${workspaceFolder}/test/restrictedAccessTest.ts" 
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "test",
+                "PERFHUB_ENABLED": "false"
+            },
+            "sourceMaps": true,
+            "skipFiles": ["<node_internals>/**"],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        // Test Case: 4 --------------->>>>
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "[regression]: Regression Test",
+            "runtimeArgs": [
+                "-r",
+                "ts-node/register"
+            ],
+            "args": [
+                "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+                "--timeout", "999999",
+                "--colors",
+                "${workspaceFolder}/test/regression.ts" 
+            ],
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "NODE_ENV": "test",
+                "PERFHUB_ENABLED": "false"
+            },
+            "sourceMaps": true,
+            "skipFiles": ["<node_internals>/**"],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart"
+        },
+        
     ]
 }

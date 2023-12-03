@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm run clean && tsc",
     "clean": "rimraf ./build ./package.zip",
-    "test": "_mocha ./build/test/loginTest.js --timeout=999999 --exit",
-    "build": "npm run clean && tsc "
+    "test": "_mocha ./build/test/invalidLoginTest.js --timeout=999999 --exit",
+    "regression": "_mocha ./build/test/regression.js --timeout=999999 --exit"
+
   },
   "keywords": [],
   "author": "Apichai Tochonnabod",

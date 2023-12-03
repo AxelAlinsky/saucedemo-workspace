@@ -36,12 +36,9 @@ export class App {
     // ---URL---
     async verifyUrl(expectedUrl: string) {
         try {
-            // Wait for the page url
-            await this.driver.wait(until.urlIs(expectedUrl), 5000);
-
             // Retrieve the page url and assert
             const actualUrl = await this.driver.getCurrentUrl();
-            assert.equal(actualUrl, expectedUrl, `Expected url '${expectedUrl}', but found '${actualUrl}'`);
+            assert.strictEqual(actualUrl, expectedUrl, `Expected url '${expectedUrl}', but found '${actualUrl}'`);
         } catch (error) {
             console.error('Error in verifyUrl:', error);
             throw error;
@@ -66,18 +63,30 @@ export class App {
         }
     }
 
-    async verifyErrorMsg() {
-        const expectedErrorMsg = 'Epic sadface: Username and password do not match any user in this service';
+    async verifyErrorMsg(expectedErrorMsg: string) {
         try {
-            // Wait for the element to be located and interactable
+            // Expilcit Wait for the element to be located
             const element = await this.driver.wait(until.elementLocated(By.css(compMain.loginErrorMsg)), 5000);
-            await this.driver.wait(until.elementIsEnabled(element), 5000);
-
+        
             // Retrieve the error message and assert
             const actualErrorMsg = await element.getText();
             assert.equal(actualErrorMsg, expectedErrorMsg, `Expected error message '${expectedErrorMsg}', but found '${actualErrorMsg}'`);
         } catch (error) {
             console.error('Error in verifyErrorMsg:', error);
+            throw error;
+        }
+    }
+
+    async restrictedErrorMsg(expectedErrorMsg: string) {
+        try {
+            // Expilcit Wait for the element to be located
+            const element = await this.driver.wait(until.elementLocated(By.css(compMain.restrictedErrorMsg)), 5000);
+        
+            // Retrieve the error message and assert
+            const actualErrorMsg = await element.getText();
+            assert.equal(actualErrorMsg, expectedErrorMsg, `Expected error message '${expectedErrorMsg}', but found '${actualErrorMsg}'`);
+        } catch (error) {
+            console.error('Error in restrictedErrorMsg:', error);
             throw error;
         }
     }
@@ -88,7 +97,6 @@ export class App {
         try {
             // Wait for the element to be located and interactable
             const element = await this.driver.wait(until.elementLocated(locator), 5000);
-            await this.driver.wait(until.elementIsEnabled(element), 5000);
 
             // Clear the input
             await element.clear();
