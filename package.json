@@ -7,12 +7,7 @@
     "build": "npm run clean && tsc",
     "clean": "rimraf ./build ./package.zip",
     "test": "_mocha ./build/test/restrictedAccessTest.js --timeout=999999 --exit",
-    "regression": "_mocha ./build/test/regression.js --timeout=999999 --exit",
-    "invalidLoginTest": "_mocha ./build/test/invalidLoginTest.js --timeout=999999 --exit",
-    "restrictedAccessTest": "_mocha ./build/test/restrictedAccessTest.js --timeout=999999 --exit",
-    "shoppingExp": "_mocha ./build/test/shoppingExp.js --timeout=999999 --exit",
-    "validLoginTest": "_mocha ./build/test/validLoginTest.js --timeout=999999 --exit"
-
+    "regression": "_mocha ./build/test/regression.js --timeout=999999 --exit"
 
   },
   "keywords": [],
