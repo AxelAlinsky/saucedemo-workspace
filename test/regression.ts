@@ -1,14 +1,9 @@
-import { expect, assert} from 'chai';
 import { WebDriver, Builder, By } from 'selenium-webdriver';
-import * as chrome from 'selenium-webdriver/chrome';
 import 'chromedriver';
-import { Main } from '../src/components/main';
-import { App } from '../src/app';
-import { DataURL } from '../src/components/data/data';
-
-
-let compMain = new Main();
-let objApp: App;
+import { runShoppingExp } from './shoppingExp';
+import { invalidLoginTest } from './invalidLoginTest';
+import { validLoginTest } from './validLoginTest';
+import { restrictedAccessTest } from './restrictedAccessTest'
 
 
 describe('Test Case: Regression Test', async function () {
@@ -21,8 +16,12 @@ describe('Test Case: Regression Test', async function () {
     after(async function () {
 
     });
-    // ---- Test Case 1 ----
 
-    // ---- Test Case 2 ----
+    runShoppingExp();
 
+    invalidLoginTest();
+
+    validLoginTest();
+
+    restrictedAccessTest();
 });
