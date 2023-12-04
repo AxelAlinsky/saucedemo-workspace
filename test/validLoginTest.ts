@@ -14,7 +14,7 @@ describe('Test Case: Validate Successful Login', async function () {
 
     before(async function () {
         driver = await App.buildDriver();
-        driver = await new Builder().forBrowser('chrome').build();
+        // driver = await new Builder().forBrowser('chrome').build();
         objApp = new App(driver); // Pass the driver instance here
         await driver.manage().window().maximize(); // Maximize the browser window
     });

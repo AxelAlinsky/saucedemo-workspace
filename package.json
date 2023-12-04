@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && tsc",
+    "docker-build": "docker build -t yourdockerusername/mocha-typescript .",
     "clean": "rimraf ./build ./package.zip",
     "test": "_mocha ./build/test/restrictedAccessTest.js --timeout=999999 --exit",
     "regression": "_mocha ./build/test/regression.js --timeout=999999 --exit",

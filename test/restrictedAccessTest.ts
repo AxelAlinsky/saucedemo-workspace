@@ -9,12 +9,12 @@ import { DataURL } from '../src/components/data/data';
 let compMain = new Main();
 let objApp: App;
 
-describe('Test Case: Retrict Direct Access', async function () {
+describe('Test Case: Restrict Direct Access', async function () {
     let driver: WebDriver;
 
     before(async function () {
         driver = await App.buildDriver();
-        driver = await new Builder().forBrowser('chrome').build();
+        // driver = await new Builder().forBrowser('chrome').build();
         objApp = new App(driver); // Pass the driver instance here
         await driver.manage().window().maximize(); // Maximize the browser window
     });
