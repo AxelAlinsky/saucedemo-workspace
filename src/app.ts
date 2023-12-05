@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import { Builder, By, until, WebDriver, Capabilities } from 'selenium-webdriver';
 import * as chrome from 'selenium-webdriver/chrome';
 import { Main } from '../src/components/main';
-import { DataURL } from '../src/components/data/data';
+import { pageUrl } from '../src/components/data/data';
 
 let compMain = new Main();
 let driver: WebDriver;

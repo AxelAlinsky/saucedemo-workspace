@@ -13,8 +13,6 @@
     "restrictedAccessTest": "_mocha ./build/test/restrictedAccessTest.js --timeout=999999 --exit",
     "shoppingExp": "_mocha ./build/test/shoppingExp.js --timeout=999999 --exit",
     "validLoginTest": "_mocha ./build/test/validLoginTest.js --timeout=999999 --exit"
-
-
   },
   "keywords": [],
   "author": "Apichai Tochonnabod",
