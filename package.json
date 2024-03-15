@@ -29,9 +29,10 @@
     "@types/puppeteer": "^7.0.4",
     "@types/selenium-webdriver": "^4.1.20",
     "chai": "^4.3.10",
-    "mocha": "^10.2.0",
-    "ts-node": "^10.9.1",
     "copyfiles": "^2.1.0",
-    "rimraf": "^2.6.2"
+    "mocha": "^10.2.0",
+    "puppeteer": "^22.4.1",
+    "rimraf": "^2.6.2",
+    "ts-node": "^10.9.1"
   }
 }
